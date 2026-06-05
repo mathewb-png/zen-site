@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f4ef;
+  --foreground: #2c2a26;
+  --bg: #f7f4ef;
+  --bg-secondary: #ede8df;
+  --bg-card: #fffcf7;
+  --text: #2c2a26;
+  --text-secondary: #5c574f;
+  --text-muted: #8a847a;
+  --border: #ddd5c8;
+  --sage: #7d9b8a;
+  --sage-deep: #5c7a6b;
+  --sage-light: #b8cfc0;
+  --sand: #d4c5b0;
+  --mist: rgba(125, 155, 138, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-cormorant);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+/* ─── Ambient background ─── */
+
+.zen-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(165deg, #f7f4ef 0%, #ede8df 45%, #e8efe9 100%);
+}
+
+.zen-bg::before,
+.zen-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+.zen-bg::before {
+  width: 55vw;
+  height: 55vw;
+  top: -15%;
+  right: -10%;
+  background: radial-gradient(circle, var(--mist) 0%, transparent 70%);
+}
+
+.zen-bg::after {
+  width: 45vw;
+  height: 45vw;
+  bottom: -20%;
+  left: -15%;
+  background: radial-gradient(circle, rgba(212, 197, 176, 0.25) 0%, transparent 70%);
+  animation-delay: -9s;
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(3%, 2%) scale(1.05); }
+}
+
+/* ─── Breathing circle ─── */
+
+.breathe-ring {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  40% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* ─── Fade-in on scroll ─── */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.fade-up-delay-1 { animation-delay: 0.15s; }
+.fade-up-delay-2 { animation-delay: 0.3s; }
+.fade-up-delay-3 { animation-delay: 0.45s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Zen card ─── */
+
+.zen-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(44, 42, 38, 0.04);
+}
+
+/* ─── Nav link ─── */
+
+.nav-link {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--sage-deep);
 }
