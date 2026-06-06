@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";

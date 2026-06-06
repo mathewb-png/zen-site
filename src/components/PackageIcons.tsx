@@ -58,33 +58,31 @@ export default function PackageIcon({
   }, []);
 
   useEffect(() => {
-    if (!mounted || reducedMotion) {
+    if (!mounted) return;
+
+    if (reducedMotion) {
       lottieRef.current?.goToAndStop(0, true);
       return;
     }
 
-    lottieRef.current?.play();
+    lottieRef.current?.goToAndPlay(0, true);
   }, [mounted, reducedMotion, tone]);
 
-  if (!mounted) {
-    return (
-      <span
-        className={`package-icon package-icon--placeholder ${className}`.trim()}
-        aria-hidden="true"
-      />
-    );
-  }
-
   return (
-    <span className={`package-icon ${className}`.trim()} aria-hidden="true">
-      <Lottie
-        lottieRef={lottieRef}
-        animationData={ANIMATIONS[tone]}
-        loop={!reducedMotion}
-        autoplay={!reducedMotion}
-        className="package-icon__lottie"
-        rendererSettings={{ preserveAspectRatio: "xMidYMid meet" }}
-      />
+    <span
+      className={`package-icon ${mounted ? "" : "package-icon--placeholder"} ${className}`.trim()}
+      aria-hidden="true"
+    >
+      {mounted ? (
+        <Lottie
+          lottieRef={lottieRef}
+          animationData={ANIMATIONS[tone]}
+          loop={!reducedMotion}
+          autoplay={!reducedMotion}
+          className="package-icon__lottie"
+          rendererSettings={{ preserveAspectRatio: "xMidYMid meet" }}
+        />
+      ) : null}
     </span>
   );
 }

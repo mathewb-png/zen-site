@@ -166,17 +166,17 @@ button:focus-visible {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   color: var(--package-accent, var(--sage-deep));
-  opacity: 0.68;
+  opacity: 1;
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
 .package-icon--placeholder {
-  opacity: 0.35;
+  opacity: 0.4;
   border-radius: 9999px;
   background: color-mix(in srgb, var(--package-accent, var(--sage-deep)) 18%, transparent);
 }
@@ -210,8 +210,8 @@ button:focus-visible {
   }
 
   .package-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 3.75rem;
+    height: 3.75rem;
     margin-top: 0.0625rem;
   }
 }
