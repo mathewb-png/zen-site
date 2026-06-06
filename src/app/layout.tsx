@@ -15,13 +15,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Zen — Find Stillness",
+  title: "Serenity Source — Readings, Counseling & Clearings",
   description:
-    "A calm space to breathe, pause, and return to the present moment.",
+    "Tarot and oracle readings, spiritual counseling, chakra and aura clearings, home blessings, and wedding officiation. Mon–Sat 11am–7pm.",
   openGraph: {
-    title: "Zen — Find Stillness",
+    title: "Serenity Source — Readings, Counseling & Clearings",
     description:
-      "A calm space to breathe, pause, and return to the present moment.",
+      "Tarot and oracle readings, spiritual counseling, chakra and aura clearings, home blessings, and wedding officiation.",
     type: "website",
   },
 };
@@ -35,8 +35,11 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} h-full scroll-smooth antialiased`}
+      style={{ colorScheme: "light" }}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="relative min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)]">
+        {children}
+      </body>
     </html>
   );
 }

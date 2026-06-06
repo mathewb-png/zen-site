@@ -1,3 +1,5 @@
+import ScrollerSceneryBackground from "@/components/ScrollerSceneryBackground";
+
 export default function ZenBackground() {
-  return <div className="zen-bg" aria-hidden="true" />;
+  return <ScrollerSceneryBackground />;
 }

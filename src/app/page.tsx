@@ -1,9 +1,9 @@
-import Breathe from "@/components/Breathe";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
-import Principles from "@/components/Principles";
-import Quote from "@/components/Quote";
+import Schedule from "@/components/Schedule";
+import Services from "@/components/Services";
 import ZenBackground from "@/components/ZenBackground";
 
 export default function Home() {
@@ -11,13 +11,15 @@ export default function Home() {
     <>
       <ZenBackground />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
-        <Breathe />
-        <Principles />
-        <Quote />
+        <Services />
+        <Schedule />
+        <Contact />
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </>
   );
 }
