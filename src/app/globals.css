@@ -121,6 +121,21 @@ body::before {
   background: rgba(255, 255, 255, 0.45);
 }
 
+/* ─── Biography ─── */
+
+.bio-portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.bio-portrait img {
+  height: 100%;
+  width: 100%;
+}
+
+.bio-book-callout {
+  box-shadow: 0 2px 12px rgba(36, 48, 43, 0.05);
+}
+
 /* ─── Accessible focus ─── */
 
 a:focus-visible,

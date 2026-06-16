@@ -1,6 +1,7 @@
 import Logo from "@/components/Logo";
 
 const links = [
+  { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#schedule", label: "Hours" },
   { href: "#contact", label: "Contact" },

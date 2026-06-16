@@ -19,11 +19,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Serenity Source — Readings, Counseling & Clearings",
   description:
-    "Tarot and oracle readings, spiritual counseling, chakra and aura clearings, home blessings, and wedding officiation. Mon–Sat 11am–7pm.",
+    "Spiritual readings, counseling, and clearings with Christopher Byrne — Navy & Coast Guard veteran, intuitive guide, and author. Mon–Sat 11am–7pm.",
   openGraph: {
     title: "Serenity Source — Readings, Counseling & Clearings",
     description:
-      "Tarot and oracle readings, spiritual counseling, chakra and aura clearings, home blessings, and wedding officiation.",
+      "Spiritual readings, counseling, and clearings with Christopher Byrne — veteran, intuitive guide, and author.",
     type: "website",
   },
 };

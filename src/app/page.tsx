@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import Biography from "@/components/Biography";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main className="relative z-10">
         <Hero />
+        <Biography />
         <Services />
         <Schedule />
         <Contact />
