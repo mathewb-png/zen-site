@@ -27,6 +27,19 @@ export default function Footer() {
         <p className="mt-8 text-xs text-[var(--text-muted)]">
           © {new Date().getFullYear()} Serenity Source
         </p>
+        <div className="mt-5 w-full max-w-xs border-t border-[var(--border)]/70 pt-5">
+          <a
+            href="https://mcbyrnecreative.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs tracking-wide text-[var(--text-muted)] transition-colors hover:text-[var(--sage-deep)]"
+          >
+            Site by{" "}
+            <span className="font-medium text-[var(--text-secondary)] underline-offset-2 hover:underline">
+              mcbyrnecreative.com
+            </span>
+          </a>
+        </div>
       </div>
     </footer>
   );
