@@ -28,21 +28,12 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.myserenitysource.com",
     siteName: "Serenity Source",
-    images: [
-      {
-        url: "/images/og-share.jpg",
-        width: 2000,
-        height: 2000,
-        alt: "Chakra illustration — spiritual balance and energy work",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Serenity Source — Readings, Counseling & Clearings",
     description:
       "Spiritual readings, counseling, and clearings with Christopher Byrne — veteran, intuitive guide, and author.",
-    images: ["/images/og-share.jpg"],
   },
 };
 
