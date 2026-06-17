@@ -1,36 +1,25 @@
 import { ImageResponse } from "next/og";
 
-export const alt =
-  "Serenity Source — spiritual readings, counseling, and clearings";
+export const alt = "Serenity Source — Readings, Counseling & Clearings";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadGoogleFont(font: string, weight: number) {
-  const css = await fetch(
-    `https://fonts.googleapis.com/css2?family=${font}:wght@${weight}&display=swap`,
-    {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
-      },
-    },
-  ).then((res) => res.text());
+const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <ellipse cx="16" cy="23.2" rx="9.2" ry="3.4" fill="#BC9AF4" stroke="#053275" stroke-width="1.15"/>
+  <ellipse cx="16" cy="18.6" rx="7.4" ry="2.9" fill="#D2DCFD" stroke="#053275" stroke-width="1.15"/>
+  <ellipse cx="16" cy="14.4" rx="5.8" ry="2.4" fill="#FFFFFF" stroke="#053275" stroke-width="1.15"/>
+  <path d="M16 8.2c-2.1 0-3.8 1.45-3.8 3.25 0 1.05.55 1.95 1.45 2.55l2.35 1.55 2.35-1.55c.9-.6 1.45-1.5 1.45-2.55 0-1.8-1.7-3.25-3.8-3.25Z" fill="#FD7DA0" stroke="#053275" stroke-width="1.05" stroke-linejoin="round"/>
+  <path d="M16 6.8v4.2M13.1 8.9h5.8" stroke="#33CCCC" stroke-width=".85" stroke-linecap="round"/>
+</svg>`;
 
-  const resource = css.match(
-    /src: url\((.+)\) format\('(opentype|truetype)'\)/,
-  )?.[1];
-
-  if (!resource) {
-    throw new Error(`Failed to load font data for ${font}`);
-  }
-
-  return fetch(resource).then((res) => res.arrayBuffer());
-}
-
-export default async function Image() {
+export default async function OpenGraphImage() {
   const [cormorant, dmSans] = await Promise.all([
-    loadGoogleFont("Cormorant+Garamond", 400),
-    loadGoogleFont("DM+Sans", 500),
+    fetch(
+      "https://fonts.gstatic.com/s/cormorantgaramond/v16/co3bmX5slCNuViSqaTK069tL.woff",
+    ).then((res) => res.arrayBuffer()),
+    fetch(
+      "https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHTWEBlzuA.woff",
+    ).then((res) => res.arrayBuffer()),
   ]);
 
   return new ImageResponse(
@@ -40,199 +29,104 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          background: "linear-gradient(180deg, #faf8f4 0%, #f5f9f6 48%, #eef4f0 100%)",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "56px 72px",
+          background:
+            "linear-gradient(135deg, #faf8f4 0%, #f5f9f6 48%, #eef4f0 100%)",
           position: "relative",
-          overflow: "hidden",
         }}
       >
         <div
           style={{
             position: "absolute",
-            inset: 0,
+            top: -80,
+            right: 120,
+            width: 420,
+            height: 420,
+            borderRadius: "50%",
             background:
-              "radial-gradient(circle at 50% 0%, rgba(122, 157, 140, 0.18), transparent 58%)",
+              "radial-gradient(circle, rgba(122, 157, 140, 0.18) 0%, transparent 70%)",
           }}
         />
         <div
           style={{
             position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: 120,
+            bottom: -120,
+            left: -60,
+            width: 360,
+            height: 360,
+            borderRadius: "50%",
             background:
-              "linear-gradient(180deg, transparent, rgba(197, 217, 206, 0.35))",
+              "radial-gradient(circle, rgba(197, 217, 206, 0.35) 0%, transparent 72%)",
           }}
         />
 
         <div
           style={{
             display: "flex",
-            height: "100%",
-            width: "100%",
-            padding: "56px 72px",
-            alignItems: "center",
-            justifyContent: "space-between",
-            position: "relative",
+            flexDirection: "column",
+            justifyContent: "center",
+            maxWidth: 680,
+            zIndex: 1,
           }}
         >
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              maxWidth: 720,
-              gap: 18,
+              fontFamily: "DM Sans",
+              fontSize: 18,
+              fontWeight: 600,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#3d6b58",
+              marginBottom: 18,
             }}
           >
-            <div
-              style={{
-                fontFamily: "DM Sans",
-                fontSize: 18,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "#3d6b58",
-              }}
-            >
-              Serenity Source
-            </div>
-            <div
-              style={{
-                fontFamily: "Cormorant Garamond",
-                fontSize: 72,
-                lineHeight: 1.05,
-                color: "#24302b",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Clarity, guidance & spiritual care
-            </div>
-            <div
-              style={{
-                fontFamily: "DM Sans",
-                fontSize: 28,
-                lineHeight: 1.45,
-                color: "#4a5c54",
-                maxWidth: 620,
-              }}
-            >
-              Tarot and oracle readings, spiritual counseling, energy clearings,
-              and wedding officiation.
-            </div>
-            <div
-              style={{
-                display: "flex",
-                gap: 14,
-                marginTop: 8,
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "DM Sans",
-                  fontSize: 18,
-                  color: "#3d6b58",
-                  border: "1px solid #c5d0c9",
-                  background: "rgba(255,255,255,0.72)",
-                  borderRadius: 999,
-                  padding: "10px 22px",
-                }}
-              >
-                Readings
-              </div>
-              <div
-                style={{
-                  fontFamily: "DM Sans",
-                  fontSize: 18,
-                  color: "#3d6b58",
-                  border: "1px solid #c5d0c9",
-                  background: "rgba(255,255,255,0.72)",
-                  borderRadius: 999,
-                  padding: "10px 22px",
-                }}
-              >
-                Counseling
-              </div>
-              <div
-                style={{
-                  fontFamily: "DM Sans",
-                  fontSize: 18,
-                  color: "#3d6b58",
-                  border: "1px solid #c5d0c9",
-                  background: "rgba(255,255,255,0.72)",
-                  borderRadius: 999,
-                  padding: "10px 22px",
-                }}
-              >
-                Clearings
-              </div>
-            </div>
+            Serenity Source
           </div>
-
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 20,
+              fontFamily: "Cormorant",
+              fontSize: 72,
+              fontWeight: 400,
+              lineHeight: 1.05,
+              color: "#24302b",
+              marginBottom: 24,
             }}
           >
-            <svg
-              width="220"
-              height="220"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="32" height="32" rx="7" fill="#FAF8F4" />
-              <circle
-                cx="16"
-                cy="16"
-                r="11.5"
-                fill="#EEF4F0"
-                stroke="#C5D0C9"
-                strokeWidth="0.8"
-              />
-              <g stroke="#3D6B58" strokeWidth="0.9" strokeLinecap="round">
-                <path
-                  d="M16 22.5C13.2 20.2 11.8 17.4 12.2 14.6C12.6 11.8 14.4 9.8 16 9.2C17.6 9.8 19.4 11.8 19.8 14.6C20.2 17.4 18.8 20.2 16 22.5Z"
-                  fill="#5F8574"
-                />
-                <path
-                  d="M16 22.5C18.8 20.2 20.2 17.4 19.8 14.6C19.4 11.8 17.6 9.8 16 9.2"
-                  fill="#89A995"
-                />
-                <path
-                  d="M11.2 17.1C9.1 14.8 9.2 12.1 10.8 10.2C12.4 8.3 14.8 8.1 16 8.8"
-                  fill="#C5D9CE"
-                />
-                <path
-                  d="M20.8 17.1C22.9 14.8 22.8 12.1 21.2 10.2C19.6 8.3 17.2 8.1 16 8.8"
-                  fill="#C5D9CE"
-                />
-                <path d="M10.6 13.4C10.8 10.6 12.7 8.7 15 8.2" fill="#D8E8DE" />
-                <path d="M21.4 13.4C21.2 10.6 19.3 8.7 17 8.2" fill="#D8E8DE" />
-              </g>
-              <circle
-                cx="16"
-                cy="15.8"
-                r="2.1"
-                fill="#FD7DA0"
-                stroke="#3D6B58"
-                strokeWidth="0.75"
-              />
-              <path
-                d="M16 6.8V8.1M16 23.9V25.2M8.8 16H7.5M24.5 16H23.2"
-                stroke="#33CCCC"
-                strokeWidth="0.75"
-                strokeLinecap="round"
-                opacity="0.85"
-              />
-            </svg>
+            Clarity, guidance & spiritual care
+          </div>
+          <div
+            style={{
+              fontFamily: "DM Sans",
+              fontSize: 28,
+              lineHeight: 1.45,
+              color: "#4a5c54",
+              maxWidth: 560,
+            }}
+          >
+            Readings · Counseling · Clearings · Ceremony
+          </div>
+          <div
+            style={{
+              marginTop: 36,
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+            }}
+          >
             <div
               style={{
-                fontFamily: "Cormorant Garamond",
-                fontSize: 34,
-                color: "#24302b",
+                height: 1,
+                width: 56,
+                background: "#c5d0c9",
+              }}
+            />
+            <div
+              style={{
+                fontFamily: "DM Sans",
+                fontSize: 22,
+                color: "#3d6b58",
               }}
             >
               myserenitysource.com
@@ -242,21 +136,32 @@ export default async function Image() {
 
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 6,
-            background: "#3d6b58",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 280,
+            height: 280,
+            borderRadius: 40,
+            background: "rgba(255, 255, 255, 0.72)",
+            border: "1px solid #c5d0c9",
+            boxShadow: "0 24px 64px rgba(74, 124, 104, 0.12)",
+            zIndex: 1,
           }}
-        />
+        >
+          <img
+            src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(logoSvg)}`}
+            width={210}
+            height={210}
+            alt=""
+          />
+        </div>
       </div>
     ),
     {
       ...size,
       fonts: [
         {
-          name: "Cormorant Garamond",
+          name: "Cormorant",
           data: cormorant,
           style: "normal",
           weight: 400,
