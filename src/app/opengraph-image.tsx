@@ -12,16 +12,7 @@ const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fil
   <path d="M16 6.8v4.2M13.1 8.9h5.8" stroke="#33CCCC" stroke-width=".85" stroke-linecap="round"/>
 </svg>`;
 
-export default async function OpenGraphImage() {
-  const [cormorant, dmSans] = await Promise.all([
-    fetch(
-      "https://fonts.gstatic.com/s/cormorantgaramond/v16/co3bmX5slCNuViSqaTK069tL.woff",
-    ).then((res) => res.arrayBuffer()),
-    fetch(
-      "https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHTWEBlzuA.woff",
-    ).then((res) => res.arrayBuffer()),
-  ]);
-
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
@@ -73,7 +64,7 @@ export default async function OpenGraphImage() {
         >
           <div
             style={{
-              fontFamily: "DM Sans",
+              fontFamily: "Georgia, serif",
               fontSize: 18,
               fontWeight: 600,
               letterSpacing: "0.18em",
@@ -86,7 +77,7 @@ export default async function OpenGraphImage() {
           </div>
           <div
             style={{
-              fontFamily: "Cormorant",
+              fontFamily: "Georgia, serif",
               fontSize: 72,
               fontWeight: 400,
               lineHeight: 1.05,
@@ -98,7 +89,7 @@ export default async function OpenGraphImage() {
           </div>
           <div
             style={{
-              fontFamily: "DM Sans",
+              fontFamily: "Arial, sans-serif",
               fontSize: 28,
               lineHeight: 1.45,
               color: "#4a5c54",
@@ -124,7 +115,7 @@ export default async function OpenGraphImage() {
             />
             <div
               style={{
-                fontFamily: "DM Sans",
+                fontFamily: "Arial, sans-serif",
                 fontSize: 22,
                 color: "#3d6b58",
               }}
@@ -157,22 +148,6 @@ export default async function OpenGraphImage() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: "Cormorant",
-          data: cormorant,
-          style: "normal",
-          weight: 400,
-        },
-        {
-          name: "DM Sans",
-          data: dmSans,
-          style: "normal",
-          weight: 500,
-        },
-      ],
-    },
+    { ...size },
   );
 }
