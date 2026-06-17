@@ -461,16 +461,8 @@ button:focus-visible {
   }
 }
 
-.logo-lottie {
+.logo-mark svg {
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.logo-lottie--placeholder {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 9999px;
-  background: color-mix(in srgb, var(--sage-deep) 12%, transparent);
 }

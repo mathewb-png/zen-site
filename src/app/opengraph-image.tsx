@@ -184,45 +184,48 @@ export default async function Image() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <rect width="32" height="32" rx="7" fill="#FAF8F4" />
-              <ellipse
+              <circle
                 cx="16"
-                cy="23.2"
-                rx="9.2"
-                ry="3.4"
-                fill="#BC9AF4"
-                stroke="#053275"
-                strokeWidth="1.15"
+                cy="16"
+                r="11.5"
+                fill="#EEF4F0"
+                stroke="#C5D0C9"
+                strokeWidth="0.8"
               />
-              <ellipse
+              <g stroke="#3D6B58" strokeWidth="0.9" strokeLinecap="round">
+                <path
+                  d="M16 22.5C13.2 20.2 11.8 17.4 12.2 14.6C12.6 11.8 14.4 9.8 16 9.2C17.6 9.8 19.4 11.8 19.8 14.6C20.2 17.4 18.8 20.2 16 22.5Z"
+                  fill="#5F8574"
+                />
+                <path
+                  d="M16 22.5C18.8 20.2 20.2 17.4 19.8 14.6C19.4 11.8 17.6 9.8 16 9.2"
+                  fill="#89A995"
+                />
+                <path
+                  d="M11.2 17.1C9.1 14.8 9.2 12.1 10.8 10.2C12.4 8.3 14.8 8.1 16 8.8"
+                  fill="#C5D9CE"
+                />
+                <path
+                  d="M20.8 17.1C22.9 14.8 22.8 12.1 21.2 10.2C19.6 8.3 17.2 8.1 16 8.8"
+                  fill="#C5D9CE"
+                />
+                <path d="M10.6 13.4C10.8 10.6 12.7 8.7 15 8.2" fill="#D8E8DE" />
+                <path d="M21.4 13.4C21.2 10.6 19.3 8.7 17 8.2" fill="#D8E8DE" />
+              </g>
+              <circle
                 cx="16"
-                cy="18.6"
-                rx="7.4"
-                ry="2.9"
-                fill="#D2DCFD"
-                stroke="#053275"
-                strokeWidth="1.15"
-              />
-              <ellipse
-                cx="16"
-                cy="14.4"
-                rx="5.8"
-                ry="2.4"
-                fill="#FFFFFF"
-                stroke="#053275"
-                strokeWidth="1.15"
-              />
-              <path
-                d="M16 8.2c-2.1 0-3.8 1.45-3.8 3.25 0 1.05.55 1.95 1.45 2.55l2.35 1.55 2.35-1.55c.9-.6 1.45-1.5 1.45-2.55 0-1.8-1.7-3.25-3.8-3.25Z"
+                cy="15.8"
+                r="2.1"
                 fill="#FD7DA0"
-                stroke="#053275"
-                strokeWidth="1.05"
-                strokeLinejoin="round"
+                stroke="#3D6B58"
+                strokeWidth="0.75"
               />
               <path
-                d="M16 6.8v4.2M13.1 8.9h5.8"
+                d="M16 6.8V8.1M16 23.9V25.2M8.8 16H7.5M24.5 16H23.2"
                 stroke="#33CCCC"
-                strokeWidth="0.85"
+                strokeWidth="0.75"
                 strokeLinecap="round"
+                opacity="0.85"
               />
             </svg>
             <div
