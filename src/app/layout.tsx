@@ -17,6 +17,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.myserenitysource.com"),
   title: "Serenity Source — Readings, Counseling & Clearings",
   description:
     "Spiritual readings, counseling, and clearings with Christopher Byrne — Navy & Coast Guard veteran, intuitive guide, and author. Mon–Sat 11am–7pm.",
@@ -25,6 +26,23 @@ export const metadata: Metadata = {
     description:
       "Spiritual readings, counseling, and clearings with Christopher Byrne — veteran, intuitive guide, and author.",
     type: "website",
+    url: "https://www.myserenitysource.com",
+    siteName: "Serenity Source",
+    images: [
+      {
+        url: "/images/og-share.jpg",
+        width: 2000,
+        height: 2000,
+        alt: "Chakra illustration — spiritual balance and energy work",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Serenity Source — Readings, Counseling & Clearings",
+    description:
+      "Spiritual readings, counseling, and clearings with Christopher Byrne — veteran, intuitive guide, and author.",
+    images: ["/images/og-share.jpg"],
   },
 };
 
